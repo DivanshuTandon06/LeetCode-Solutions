@@ -1,40 +1,33 @@
 class Solution {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         int i = 0;
-        int j = 0;
-         int max = 0; 
-        for( int t = 0 ; t <nums1.length ;t++)
+        int[] arr = new int[nums1.length];
+        while(i < nums1.length)
         {
-            int index = 0;
-            for(int k = 0 ; k < nums2.length ;k++)
+            int element = nums1[i];
+            int elementindex = 0;
+            for(int j = 0 ; j < nums2.length ;j++)
             {
-                if(nums1[t] == nums2[k])
+                if(nums2[j]== element)
                 {
-                    max = nums2[k];
-                    index = k; 
+                    elementindex = j;
+                    break;
                 }
             }
-            for(int y = index ; y < nums2.length ; y++)
+            for(int k = elementindex ; k < nums2.length ; k++)
             {
-                if(nums2[y] > max)
+                if(nums2[k]  > element)
                 {
-                max = nums2[y];
-                break;
+                    arr[i] = nums2[k];
+                    break;
+                }
+                else{
+                    arr[i] = -1;
                 }
             }
-
-            if(max == nums2[index])
-            {
-                nums1[t] = -1;
-            }
-            else
-            {
-                nums1[t] = max;
-            }
+            i++;
         }
-        return nums1;
-        
-
+        return arr;
         
     }
 }
