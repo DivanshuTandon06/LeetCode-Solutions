@@ -3,10 +3,7 @@ class Solution {
        int total = 0;
         
         for (int i = 0; i < s.length(); i++) {
-            // Get value of current symbol
             int s1 = getValue(s.charAt(i));
-            
-            // Look ahead to the next symbol (if we aren't at the end)
             if (i + 1 < s.length()) {
                 int s2 = getValue(s.charAt(i + 1));
                 
@@ -23,8 +20,6 @@ class Solution {
         }
         return total;
     }
-
-    // Helper method to get the value of the Roman character
     private int getValue(char c) {
         switch(c) {
             case 'I': return 1;
